@@ -1,0 +1,4 @@
+venv/
+*.ipynb
+palavras.txt
+usadas.txt
