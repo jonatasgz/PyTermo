@@ -50,6 +50,7 @@ Caso o jogador introduza a palavra correcta dentro das 5 tentativas vencerá o j
 Uma pontuação final será mostrada tendo em conta o número de tentativas e o tempo despendido
 """
 
+# Pede input a perguntar se deve ser iniciada nova jogada, caso não seja iniciada, sair
 def quer_jogar():
     pergunta = input("Iniciar nova jogada? (s/n)\n")
     while pergunta not in ['s', 'n']:
@@ -110,10 +111,7 @@ def jogar_palavra():
 
 # Função que retorna True se a condição de vitória se cumpriu
 def verifica_vitoria(palavra, palavra_dia):
-    if palavra == palavra_dia:
-        return True
-    else:
-        return False
+    return palavra == palavra_dia
 
 # Função que compara tentativa com palavra do dia, retornando indices de correspondencias
 def comparar(palavra, palavra_dia):
@@ -154,6 +152,7 @@ def feedback(palavra, palavra_dia):
     print(''.join(limite))
     print('\n')
 
+# Calcular pontuação com base no tempo da jogada e número de tentativas utilizadas
 def pontuacao(tempo_inicio, tentativas):
     tempo_fim = time.time()
     tempo = tempo_fim - tempo_inicio
@@ -194,10 +193,10 @@ def motor_jogada():
     if quer_jogar():
         return True
 
-def inicar():
+def iniciar():
     print(mensagem)
     quer_jogar()
     while motor_jogada():
         motor_jogada()
 
-inicar()
+iniciar()
